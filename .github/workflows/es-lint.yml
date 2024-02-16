@@ -5,7 +5,10 @@ on: [push]
 jobs:
   eslint:
     runs-on: ubuntu-latest
-    container: docker:dind
     steps:
-      - name: Test linter with docker
-        run: docker run -itd --rm -v $(pwd):/data cytopia/eslint .
+      - uses: actions/checkout@v1
+      - name: Intall modules
+        run: npm install eslint -D
+      - uses: stefanoeb/eslint-action@1.0.2
+        with:
+          files: src/
