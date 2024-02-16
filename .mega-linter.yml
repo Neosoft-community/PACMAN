@@ -1,0 +1,7 @@
+---
+APPLY_FIXES: none
+
+ENABLE_LINTER:
+  - JAVASCRIPT_ES
+
+PARALLEL: true
