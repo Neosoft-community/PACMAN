@@ -8,4 +8,4 @@ jobs:
     container: docker:dind
     steps:
       - name: Test linter with docker
-        run: docker run -it --rm -v $(pwd):/data cytopia/eslint .
+        run: docker run -itd --rm -v $(pwd):/data cytopia/eslint .
