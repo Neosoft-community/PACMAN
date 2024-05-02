@@ -1,13 +1,7 @@
 ---
 name: Lint Codebase
 
-on:
-  pull_request:
-    branches:
-      - main
-  push:
-    branches:
-      - main
+on: [push]
 
 permissions:
   contents: read
