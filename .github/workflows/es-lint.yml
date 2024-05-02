@@ -1,18 +1,50 @@
 ---
-name: Eslint for TYPESCRIPT
-on: [push]
+name: Lint Codebase
 
-concurrency:
-  group: ${{ github.ref }}-${{ github.workflow }}
-  cancel-in-progress: true
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  packages: read
+  statuses: write
 
 jobs:
-  eslint:
+  lint:
+    name: Lint Codebase
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v1
-      - name: Install dependencies
-        run: npm install
-      - uses: stefanoeb/eslint-action@1.0.2
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v4
         with:
-          files: src/
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        id: setup-node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: npm
+
+      - name: Install Dependencies
+        id: install
+        run: npm ci
+
+      - name: Lint Codebase
+        id: super-linter
+        uses: super-linter/super-linter/slim@v6
+        env:
+          DEFAULT_BRANCH: main
+          FILTER_REGEX_EXCLUDE: dist/**/*
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TYPESCRIPT_DEFAULT_STYLE: prettier
+          VALIDATE_ALL_CODEBASE: true
+          VALIDATE_JAVASCRIPT_STANDARD: false
+          VALIDATE_JSCPD: false
