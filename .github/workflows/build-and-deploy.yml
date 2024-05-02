@@ -1,6 +1,7 @@
+---
 name: Optimize map and deploy
 
-on: [ push ]
+on: [push]
 
 permissions:
   contents: write
