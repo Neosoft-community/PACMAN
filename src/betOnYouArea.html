@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styleText.css">
+
+    <!-- <link rel="stylesheet" href="styleText.css">
+    <style>
+        body {
+            background-color: transparent;
+            font-family: "Press Start 2P", system-ui;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            height: 100vh;
+            display: flex;
+            align-items: flex-end;
+            position: absolute;
+        }
+
+        #box {
+            min-height: 6em;
+            background-color: aliceblue;
+            border-radius: 10px;
+            padding: 1em;
+            min-width: 70em;
+        }
+
+        #videoContainer {
+            /* Importznt de laisser a none, devient "flex" dans betOnBetter.js au moment de l'afficher */
+            display: none;
+            justify-content: center;
+            margin: 2em 0;
+        }
+
+        #next {
+            position: absolute;
+            bottom: 1em;
+            right: 1em;
+            background-color: skyblue;
+            padding: 1em 2em;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #next:hover {
+            background-color: white;
+        }
+    </style> -->
+</head>
+<body>
+    <div id="container">
+        <div id="box">
+            <div id="videoContainer">
+                <iframe id="video" width="800" height="450" src="https://www.youtube.com/embed/oyPuXWAEwWE?si=E6NVhvli_9Iv8XYb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div id="text"></div>
+            <button hidden="true" id="next">Suivant</button>
+        </div>
+    </div>
+</body>
+<script>
+    
+const text = [
+    "Salut ! Te voilà dans la salle “Bet on You”. Ici tu trouveras nos ressources et publications, telles que des articles et des livres blancs. Qu’aimerais-tu faire ?"
+];
+let index = 0;
+let textIndex = 0
+
+function showText() {
+    let textElement = document.getElementById("text")
+    if (textElement) {
+        textElement.textContent = text[textIndex].slice(0, index);
+    }
+    index++;
+    if (textIndex == 1) {
+        document.getElementById("videoContainer").style.display = "flex"
+    }
+    if (textIndex != 1) {
+        document.getElementById("videoContainer").style.display = "none"
+    }
+    if (index <= text[textIndex].length) {
+        setTimeout(showText, 20);
+    } else {
+        let nextButton = document.getElementById("next")
+        if (nextButton) {
+            nextButton.hidden = false;
+        }
+    }
+}
+
+showText();
+
+const button = document.querySelector("button");
+
+button?.addEventListener("click", () => {
+    let nextButton = document.getElementById("next")
+    if (nextButton) {
+        nextButton.hidden = true;
+    }
+    index = 0;
+    textIndex++;
+    if (textIndex == text.length) {
+        document.getElementById("box").style.display = "none"
+    }
+    showText();
+});
+</script>
+</html>

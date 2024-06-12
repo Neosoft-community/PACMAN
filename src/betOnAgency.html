@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styleText.css">
+    <style>
+        
+body {
+    background-color: transparent;
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#box {
+    position: relative;
+    height: 6em;
+    background-color: aliceblue;
+    border-radius: 10px;
+    padding: 1em;
+}
+
+#next {
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    background-color: skyblue;
+    padding: 1em 2em;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#next:hover {
+    background-color: white;
+}
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div id="text"></div>
+        <button hidden="true" id="next">Suivant</button>
+    </div>
+</body>
+<script>
+    
+const text = [
+    "Hello ! Bienvenue dans la salle \"Bet On Agency\". Ici tu découvriras les informations sur l'agence de Niort de Neosoft. ",
+    "Tu peux voir une vidéo de présentation de l'agence en te rapprochant de la grande table à gauche dans cette cuisine ! ",
+];
+let index = 0;
+let textIndex = 0
+
+function showText() {
+    let textElement = document.getElementById("text")
+    if (textElement) {
+        textElement.textContent = text[textIndex].slice(0, index);
+    }
+    index++;
+
+    if (index <= text[textIndex].length) {
+        setTimeout(showText, 20);
+    } else {
+        let nextButton = document.getElementById("next")
+        if (nextButton) {
+            nextButton.hidden = false;
+        }
+    }
+}
+
+showText();
+
+const button = document.querySelector("button");
+
+button?.addEventListener("click", () => {
+    let nextButton = document.getElementById("next")
+    if (nextButton) {
+        nextButton.hidden = true;
+    }
+    index = 0;
+    textIndex++;
+    if (textIndex == text.length) {
+        document.getElementById("box").style.display = "none"
+    }
+    showText();
+});
+</script>
+</html>
