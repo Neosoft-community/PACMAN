@@ -1,6 +1,6 @@
 
 const text = [
-    "Te voilà dans la salle “Bet on Expertise”. Tu trouveras ici des informations sur les différentes communautés d'expert de Neosoft. Tu peux regarder les différentes vidéos sur chacune de nos expertises sur les différents ordinateurs dans cette pièce. "
+    "Te voilà dans la salle “Bet on Expertise”. Tu trouveras ici des informations sur les différentes communautés d'expert de Neosoft. Tu peux regarder les vidéos de nos 6 practices, sur les ordinateurs de cette pièce. "
 ];
 let index = 0;
 let textIndex = 0
