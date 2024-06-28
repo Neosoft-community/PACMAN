@@ -1,7 +1,7 @@
 
 const text = [
-    "Hello ! Bienvenue dans la salle \"Bet On Talent\". Ici tu découvriras les informations sur les opportunités de carrière chez Neosoft. ",
-    "Tout d'abord, mot de Barbara, la directrice du développement RH : ",
+    "Hello ! Bienvenue dans la salle \"Bet On Talent\". Ici tu découvriras des informations sur les opportunités de carrière chez Neosoft. ",
+    "Tout d'abord, mot de Barbara, la Directrice du Développement RH : ",
     "\"Engager nos talents dans une culture d'apprentissage"
 ];
 let index = 0;

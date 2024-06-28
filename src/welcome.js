@@ -1,8 +1,8 @@
 const text = [
-    "Bonjour, et bienvenue sur la map interactive de notre agence Neosoft Niort !",
-    "Aujourd'hui, nous te donnons la possibilité d'en apprendre plus sur nos valeurs, nos engagements et notre philosophie au travers de ce parcours.",
+    "Bonjour, et bienvenue sur la map interactive de notre agence Néosoft Niort !",
+    "Aujourd'hui, nous te donnons la possibilité d'en apprendre plus sur nos valeurs, nos engagements et notre philosophie à travers ce parcours.",
     "Oh, j'allais oublier !",
-    "Avant de partir pour ce voyage, je vais t'indiquer comment accéder au tutoriel qui t'expliquera tout ce que tu peux faire ici avant de découvrir notre agence.",
+    "Avant de partir pour ce voyage, je vais t'indiquer comment accéder au tutoriel qui t'expliquera tout ce que tu peux faire ici.",
     "Après avoir parlé à un personnage, réponds lui avec un emoji !",
     "Appuie sur la flèche de gauche sur ton clavier pour t'approcher du personnage."
 ];
