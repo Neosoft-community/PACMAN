@@ -37,7 +37,8 @@ export const AREA = {
         BET_ON_YOU_LINK3: "betOnYouLink3",
         QUEST_BOT1: "questBotArea1",
         QUEST_BOT2: "questBotArea2",
-        QUEST_BOT3: "questBotArea3"
+        QUEST_BOT3: "questBotArea3",
+        BET_ON_EXPERTISE_VIDEO6: "videoSoftware"
     },
     DOORS_LAYER: {
         ALL_DOORS_CLOSED : "allDoorsClosed",

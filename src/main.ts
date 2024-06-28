@@ -507,6 +507,27 @@ WA.room.area.onLeave(AREA.FLOOR_LAYER.BET_ON_EXPERTISE_VIDEO5).subscribe(() => {
     WA.state.saveVariable("leaveOnClick", false);
 })
 
+WA.room.area.onEnter(AREA.FLOOR_LAYER.BET_ON_EXPERTISE_VIDEO6).subscribe(() => {
+
+    // modalOpenTime = Date.now();
+
+    WA.ui.modal.openModal({
+        title: 'videoPracticeSoftware ',// mandatory, title of the iframe modal.
+        src: "https://www.youtube.com/embed/ILjLAV9qW4w?si=2Xazmw4nJGeGOFnl",
+        position: "center",
+        allow: null,
+        allowApi: false
+    }, () => {
+        // Data.closeModalCallback(modalOpenTime, "devopsVideoData");
+    })
+})
+
+WA.room.area.onLeave(AREA.FLOOR_LAYER.BET_ON_EXPERTISE_VIDEO6).subscribe(() => {
+    // let leftOnClick = WA.state.loadVariable("leaveOnClick")
+    // leftOnClick ? WA.ui.modal.closeModal() : Data.closeModalCallback(modalOpenTime, "devopsVideoData");
+    WA.state.saveVariable("leaveOnClick", false);
+})
+
 WA.room.area.onEnter(AREA.FLOOR_LAYER.BET_ON_EXPERTISE).subscribe(async () => {
     boiteDeDialogue("src/betOnExpertise.html");
 
