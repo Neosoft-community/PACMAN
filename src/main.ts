@@ -286,6 +286,9 @@ WA.room.area.onEnter(AREA.FLOOR_LAYER.BET_ON_BETTER).subscribe(async () => {
 
 
 
+
+
+
 WA.room.area.onLeave(AREA.FLOOR_LAYER.BET_ON_BETTER).subscribe(() => {
     closeAllPrompts();
     //await closeAllPrompts();;
@@ -672,5 +675,8 @@ async function closeAllPrompts():Promise<void> {
         ws.close();
     })
 }
+
+//pop up video
+
 
 export { currentPopup };
