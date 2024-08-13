@@ -17,7 +17,8 @@ function showText() {
         document.getElementById("videoContainer").style.display = "flex"
     }
     if (textIndex != 1) {
-        document.getElementById("videoContainer").style.display = "none"
+      //  document.getElementById("box").removeChild(document.getElementById("videoContainer"));
+        document.getElementById( "body").focus()
     }
     if (index <= text[textIndex].length) {
         setTimeout(showText, 20);
@@ -40,10 +41,12 @@ button?.addEventListener("click", () => {
     }
     index = 0;
     textIndex++;
+    console.info("coucou")
     if (textIndex == text.length) {
-        document.getElementById("box").style.display = "none"
-        
-        window.parent.postMessage({ type: 'closeUIWebsite' }, "*");
+       document.getElementById("box").style.display = "none"
+       document.getElementById("game-overlay").focus()
+      // window.parent.postMessage({ type: 'closeUIWebsite' }, "*");
+       
     }
     showText();
 });
