@@ -1,3 +1,4 @@
+
 const text = [
     "Bonjour, et bienvenue sur la map interactive de notre agence Néosoft Niort !",
     "Aujourd'hui, nous te donnons la possibilité d'en apprendre plus sur nos valeurs, nos engagements et notre philosophie à travers ce parcours.",
