@@ -1,6 +1,6 @@
 
 const text = [
-    "Hello ! Bienvenue dans la salle \"Bet On Agency\". Ici tu découvriras les informations sur l'agence de Niort de Neosoft. ",
+    "Bienvenue dans l'espace  \"Bet On Better\". qui contient une présentation générale du groupe Néosoft. ",
     "Tu peux voir une vidéo de présentation de l'agence en te rapprochant de la grande table à gauche dans cette cuisine ! ",
 ];
 let index = 0;
