@@ -1,6 +1,6 @@
 
 const text = [
-    "« Consulter nos articles "
+    "Consulter nos articles "
 ];
 let index = 0;
 let textIndex = 0
