@@ -1,6 +1,6 @@
 
 const text = [
-    "« Consulter nos évènements "
+    "Consulter nos évènements "
 ];
 let index = 0;
 let textIndex = 0

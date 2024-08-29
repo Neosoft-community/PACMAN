@@ -4,7 +4,7 @@ import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 import "./gates/gate";
 // import * as Data from "./data/data";
 import { AREA } from "./constantes";
-import { UIWebsite } from "@workadventure/iframe-api-typings";
+import { ActionMessage, UIWebsite } from "@workadventure/iframe-api-typings";
 
 console.log('Script started successfully');
 
@@ -405,29 +405,54 @@ WA.room.area.onLeave(AREA.FLOOR_LAYER.BET_ON_AGENCY).subscribe(async () => {
     //await closeAllPrompts();;
 })
 
+/**Vidéo Cloud */
+let actionMessage: ActionMessage | null; // Variable to store the action message instance
+
+// Subscribe to the event when entering the specified area
 WA.room.area.onEnter(AREA.FLOOR_LAYER.BET_ON_EXPERTISE_VIDEO1).subscribe(() => {
+    // Message avant de cliquer sur espace
+    actionMessage = WA.ui.displayActionMessage({
+        message: "Appuie sur 'espace' pour regarder la vidéo",
+        callback: () => {
+            // Ouvre la vidéo youtube
+            WA.ui.modal.openModal({
+                title: 'videoPracticeCloud',
+                src: "https://www.youtube.com/embed/OxnPvT5mzS8?si=rCsVFgItB3UvEJeQ",
+                position: "center",
+                allow: null,
+                allowApi: false
+            });
+        }
+    });
+    
+    WA.state.saveVariable("leaveOnClick", false);
+});
 
-    // modalOpenTime = Date.now();
-
-    WA.ui.modal.openModal({
-        title: 'videoPracticeCloud',
-        src: "https://www.youtube.com/embed/OxnPvT5mzS8?si=rCsVFgItB3UvEJeQ",
-        position: "center",
-        allow: null,
-        allowApi: false
-    }, () => {
-        // Data.closeModalCallback(modalOpenTime, "cloudVideoData");
-    })
-})
-
+// Message disparait quand l'avatar n'est plus sur la zone
 WA.room.area.onLeave(AREA.FLOOR_LAYER.BET_ON_EXPERTISE_VIDEO1).subscribe(() => {
+    // Remove the action message when leaving the area
+    if (actionMessage) {
+        actionMessage.remove();
+        actionMessage = null; // Clear the stored instance
+    }
+
+    WA.state.saveVariable("leaveOnClick", false);
+});
+
+
+
+/**WA.room.area.onLeave(AREA.FLOOR_LAYER.BET_ON_EXPERTISE_VIDEO1).subscribe(() => {
     // let leftOnClick = WA.state.loadVariable("leaveOnClick")
     // leftOnClick ? WA.ui.modal.closeModal() : Data.closeModalCallback(modalOpenTime, "cloudVideoData");
     WA.state.saveVariable("leaveOnClick", false);
-})
+})*/
 
 WA.room.area.onEnter(AREA.FLOOR_LAYER.BET_ON_EXPERTISE_VIDEO2).subscribe(() => {
 
+    // Message avant de cliquer sur espace
+    actionMessage = WA.ui.displayActionMessage({
+        message: "Appuie sur 'espace' pour regarder la vidéo",
+        callback: () => {
     // modalOpenTime = Date.now();
 
     WA.ui.modal.openModal({
@@ -436,20 +461,38 @@ WA.room.area.onEnter(AREA.FLOOR_LAYER.BET_ON_EXPERTISE_VIDEO2).subscribe(() => {
         position: "center",
         allow: null,
         allowApi: false
-    }, () => {
-        // Data.closeModalCallback(modalOpenTime, "devopsVideoData");
-    })
-})
+    });
+}
+});
 
+WA.state.saveVariable("leaveOnClick", false);
+});
+
+// Message disparait quand l'avatar n'est plus sur la zone
 WA.room.area.onLeave(AREA.FLOOR_LAYER.BET_ON_EXPERTISE_VIDEO2).subscribe(() => {
+    // Remove the action message when leaving the area
+    if (actionMessage) {
+        actionMessage.remove();
+        actionMessage = null; // Clear the stored instance
+    }
+
+    WA.state.saveVariable("leaveOnClick", false);
+});
+
+/**WA.room.area.onLeave(AREA.FLOOR_LAYER.BET_ON_EXPERTISE_VIDEO2).subscribe(() => {
     // let leftOnClick = WA.state.loadVariable("leaveOnClick")
     // leftOnClick ? WA.ui.modal.closeModal() : Data.closeModalCallback(modalOpenTime, "devopsVideoData");
     WA.state.saveVariable("leaveOnClick", false);
-})
+})**/
 
 WA.room.area.onEnter(AREA.FLOOR_LAYER.BET_ON_EXPERTISE_VIDEO3).subscribe(() => {
 
     // modalOpenTime = Date.now();
+     // Message avant de cliquer sur espace
+     actionMessage = WA.ui.displayActionMessage({
+        message: "Appuie sur 'espace' pour regarder la vidéo",
+        callback: () => {
+            // Ouvre la vidéo youtube
 
     WA.ui.modal.openModal({
         title: 'videoPracticeCyber',// mandatory, title of the iframe modal.
@@ -457,19 +500,36 @@ WA.room.area.onEnter(AREA.FLOOR_LAYER.BET_ON_EXPERTISE_VIDEO3).subscribe(() => {
         position: "center",
         allow: null,
         allowApi: false
-    }, () => {
-        // Data.closeModalCallback(modalOpenTime, "cyberVideoData");
-    })
-})
+    });
+        }
+    });
+    
+    WA.state.saveVariable("leaveOnClick", false);
+});
 
+// Message disparait quand l'avatar n'est plus sur la zone
 WA.room.area.onLeave(AREA.FLOOR_LAYER.BET_ON_EXPERTISE_VIDEO3).subscribe(() => {
+    // Remove the action message when leaving the area
+    if (actionMessage) {
+        actionMessage.remove();
+        actionMessage = null; // Clear the stored instance
+    }
+
+    WA.state.saveVariable("leaveOnClick", false);
+});
+
+/**WA.room.area.onLeave(AREA.FLOOR_LAYER.BET_ON_EXPERTISE_VIDEO3).subscribe(() => {
     // let leftOnClick = WA.state.loadVariable("leaveOnClick")
     // leftOnClick ? WA.ui.modal.closeModal() : Data.closeModalCallback(modalOpenTime, "cyberVideoData");
     WA.state.saveVariable("leaveOnClick", false);
-})
+})**/
 
 WA.room.area.onEnter(AREA.FLOOR_LAYER.BET_ON_EXPERTISE_VIDEO4).subscribe(() => {
-
+    // Message avant de cliquer sur espace
+    actionMessage = WA.ui.displayActionMessage({
+        message: "Appuie sur 'espace' pour regarder la vidéo",
+        callback: () => {
+            // Ouvre la vidéo youtube
     // modalOpenTime = Date.now();
 
     WA.ui.modal.openModal({
@@ -478,19 +538,36 @@ WA.room.area.onEnter(AREA.FLOOR_LAYER.BET_ON_EXPERTISE_VIDEO4).subscribe(() => {
         position: "center",
         allow: null,
         allowApi: false
-    }, () => {
-        // Data.closeModalCallback(modalOpenTime, "agiliteVideoData");
-    })
-})
+    });
+}
+});
 
+WA.state.saveVariable("leaveOnClick", false);
+});
+
+// Message disparait quand l'avatar n'est plus sur la zone
 WA.room.area.onLeave(AREA.FLOOR_LAYER.BET_ON_EXPERTISE_VIDEO4).subscribe(() => {
+    // Remove the action message when leaving the area
+    if (actionMessage) {
+        actionMessage.remove();
+        actionMessage = null; // Clear the stored instance
+    }
+
+    WA.state.saveVariable("leaveOnClick", false);
+});
+
+/**WA.room.area.onLeave(AREA.FLOOR_LAYER.BET_ON_EXPERTISE_VIDEO4).subscribe(() => {
     // let leftOnClick = WA.state.loadVariable("leaveOnClick")
     // leftOnClick ? WA.ui.modal.closeModal() : Data.closeModalCallback(modalOpenTime, "agiliteVideoData");
     WA.state.saveVariable("leaveOnClick", false);
-})
+})**/
 
 WA.room.area.onEnter(AREA.FLOOR_LAYER.BET_ON_EXPERTISE_VIDEO5).subscribe(() => {
-
+    // Message avant de cliquer sur espace
+    actionMessage = WA.ui.displayActionMessage({
+        message: "Appuie sur 'espace' pour regarder la vidéo",
+        callback: () => {
+            // Ouvre la vidéo youtube
     // modalOpenTime = Date.now();
 
     WA.ui.modal.openModal({
@@ -499,37 +576,65 @@ WA.room.area.onEnter(AREA.FLOOR_LAYER.BET_ON_EXPERTISE_VIDEO5).subscribe(() => {
         position: "center",
         allow: null,
         allowApi: false
-    }, () => {
-        // Data.closeModalCallback(modalOpenTime, "dataVideoData");
-    })
-})
+    });
+}
+});
 
+WA.state.saveVariable("leaveOnClick", false);
+});
+
+// Message disparait quand l'avatar n'est plus sur la zone
 WA.room.area.onLeave(AREA.FLOOR_LAYER.BET_ON_EXPERTISE_VIDEO5).subscribe(() => {
+    // Remove the action message when leaving the area
+    if (actionMessage) {
+        actionMessage.remove();
+        actionMessage = null; // Clear the stored instance
+    }
+
+    WA.state.saveVariable("leaveOnClick", false);
+});
+/**WA.room.area.onLeave(AREA.FLOOR_LAYER.BET_ON_EXPERTISE_VIDEO5).subscribe(() => {
     // let leftOnClick = WA.state.loadVariable("leaveOnClick")
     // leftOnClick ? WA.ui.modal.closeModal() : Data.closeModalCallback(modalOpenTime, "dataVideoData");
     WA.state.saveVariable("leaveOnClick", false);
-})
+})**/
 
 WA.room.area.onEnter(AREA.FLOOR_LAYER.BET_ON_EXPERTISE_VIDEO6).subscribe(() => {
-
+    // Message avant de cliquer sur espace
+    actionMessage = WA.ui.displayActionMessage({
+        message: "Appuie sur la  'espace' pour regarder la vidéo",
+        callback: () => {
     // modalOpenTime = Date.now();
 
+     // Ouvre la vidéo youtube
     WA.ui.modal.openModal({
         title: 'videoPracticeSoftware ',// mandatory, title of the iframe modal.
         src: "https://www.youtube.com/embed/ILjLAV9qW4w?si=2Xazmw4nJGeGOFnl",
         position: "center",
         allow: null,
         allowApi: false
-    }, () => {
-        // Data.closeModalCallback(modalOpenTime, "devopsVideoData");
-    })
-})
-
+    });
+        }
+    });
+    
+    WA.state.saveVariable("leaveOnClick", false);
+});
+// Message disparait quand l'avatar n'est plus sur la zone
 WA.room.area.onLeave(AREA.FLOOR_LAYER.BET_ON_EXPERTISE_VIDEO6).subscribe(() => {
+    // Remove the action message when leaving the area
+    if (actionMessage) {
+        actionMessage.remove();
+        actionMessage = null; // Clear the stored instance
+    }
+
+    WA.state.saveVariable("leaveOnClick", false);
+});
+
+/**WA.room.area.onLeave(AREA.FLOOR_LAYER.BET_ON_EXPERTISE_VIDEO6).subscribe(() => {
     // let leftOnClick = WA.state.loadVariable("leaveOnClick")
     // leftOnClick ? WA.ui.modal.closeModal() : Data.closeModalCallback(modalOpenTime, "devopsVideoData");
     WA.state.saveVariable("leaveOnClick", false);
-})
+})**/
 
 WA.room.area.onEnter(AREA.FLOOR_LAYER.BET_ON_EXPERTISE).subscribe(async () => {
     boiteDeDialogue("src/betOnExpertise.html");
@@ -621,6 +726,10 @@ WA.room.area.onEnter(AREA.FLOOR_LAYER.BET_ON_FUTUR_LINK_3).subscribe(async () =>
         allowApi: true,
     })
 })
+
+
+
+
 
 WA.room.area.onLeave(AREA.FLOOR_LAYER.BET_ON_FUTUR_LINK_3).subscribe(async () => {
     await currentPopup.close()

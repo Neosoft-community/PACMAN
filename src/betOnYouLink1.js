@@ -1,6 +1,6 @@
 
 const text = [
-    "« Consulter nos livres blancs "
+    "Consulter nos livres blancs "
 ];
 let index = 0;
 let textIndex = 0
