@@ -6,6 +6,9 @@ on:
     types: [opened, synchronize, reopened]
     branches:
       - master
+  push:
+    branches:
+      - master
 
 permissions:
   contents: write
