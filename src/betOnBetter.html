@@ -88,8 +88,8 @@ const text = [
 ];
 let index = 0;
 let textIndex = 0
-
 function showText() {
+    console.log('exec showtxtbetob')
     let textElement = document.getElementById("text")
     if (textElement) {
         textElement.textContent = text[textIndex].slice(0, index);
@@ -126,7 +126,7 @@ button?.addEventListener("click", () => {
         document.getElementById("box").style.display = "none"
         document.getElementById("game-overlay").focus()
         
-        //window.parent.postMessage({ type: 'closeUIWebsite' }, "*");
+        window.parent.postMessage({ type: 'closeUIWebsite' }, "*");
     }
     showText();
 });

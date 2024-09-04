@@ -279,7 +279,7 @@ WA.room.area.onLeave(AREA.FLOOR_LAYER.BET_ON_FUTUR_LINK_3).subscribe(async () =>
 })
 
 WA.room.area.onEnter(AREA.FLOOR_LAYER.BET_ON_BETTER).subscribe(async () => {
-
+    console.log('enter betonbetter')
     boiteDeDialogue("src/betOnBetter.html", "90vh", "76vw");
 })
 
@@ -289,7 +289,8 @@ WA.room.area.onEnter(AREA.FLOOR_LAYER.BET_ON_BETTER).subscribe(async () => {
 
 
 
-WA.room.area.onLeave(AREA.FLOOR_LAYER.BET_ON_BETTER).subscribe(() => {
+WA.room.area.onLeave(AREA.FLOOR_LAYER.BET_ON_BETTER).subscribe(async () => {
+    console.log('leaving betonbetter')
     closeAllPrompts();
     //await closeAllPrompts();;
 })
@@ -789,3 +790,8 @@ async function closeAllPrompts():Promise<void> {
 
 
 export { currentPopup };
+
+document.addEventListener("keydown",function(event){
+    debugger;
+    console.log(event);
+})
