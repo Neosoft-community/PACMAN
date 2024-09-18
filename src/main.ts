@@ -8,10 +8,7 @@ import { ActionMessage, UIWebsite } from "@workadventure/iframe-api-typings";
 
 console.log('Script started successfully');
 
-/// <reference types="@workadventure/iframe-api-typings" />
-
 let allPopup: Array<any> = new Array();
-
 
 let currentPopup : any = undefined;
 // let currentPrompt: UIWebsite;
