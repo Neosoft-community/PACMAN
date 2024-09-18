@@ -11,18 +11,7 @@ console.log('Script started successfully');
 /// <reference types="@workadventure/iframe-api-typings" />
 
 let allPopup: Array<any> = new Array();
-let passageStat = {
-    "salles":           [false,false,false,false,false,false,false,false,false],
-    "conf1":            [false,false,false,false,false,false,false,false,false],
-    "conf2":            [false,false,false,false,false,false,false,false,false],
-    "conf3":            [false,false,false,false,false,false,false,false,false],
-    "indices":          [false,false,false,false,false,false,false,false,false],
-    "indicesTotaux":    [false,false,false,false,false,false,false,false,false],
-    "quetes":           [false,false,false,false],
-    "quetesTot":        [false,false,false,false],
-    "quetesTard":       [false,false,false,false],
-    "quetesTotales":    [false,false,false,false],
-}
+
 
 let currentPopup : any = undefined;
 // let currentPrompt: UIWebsite;
