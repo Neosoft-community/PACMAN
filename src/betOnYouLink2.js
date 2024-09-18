@@ -29,8 +29,15 @@ function showText() {
 
 showText();
 
-const button = document.getElementById("next");
+window.parent.focus();
 
+const careerButton = document.getElementById("career");
+careerButton.addEventListener("click", () => {
+window.open("https://www.neosoft.fr/nos-publications/livres-blancs-et-refcards/", "_blank");
+window.parent.focus();
+});
+
+/**
 button?.addEventListener("click", () => {
     let nextButton = document.getElementById("next")
     if (nextButton) {
@@ -51,4 +58,4 @@ const career = document.getElementById("career")
 
 career?.addEventListener("click", () => {
     window.open("https://www.neosoft.fr/nos-publications/blog-tech ", "_blank")
-})
+})**/

@@ -74,7 +74,8 @@
                 }
             }
         }
-
+        
+        window.parent.focus();
         showText();
 
         const button = document.querySelector("button");
@@ -89,7 +90,10 @@
             if (textIndex == text.length) {
                 document.getElementById("box").style.display = "none"
             }
+            window.parent.focus();
             showText();
+            
+   
         });
     </script>
 </html>

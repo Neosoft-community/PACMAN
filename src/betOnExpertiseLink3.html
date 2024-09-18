@@ -128,6 +128,7 @@ button?.addEventListener("click", () => {
     if (textIndex >= text.length) {
         document.getElementById("box").style.display = "none";
         window.parent.postMessage({ type: 'closeUIWebsite' }, "*");
+        window.parent.focus();
         return;
     }
     showText();

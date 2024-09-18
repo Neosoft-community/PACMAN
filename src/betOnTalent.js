@@ -34,6 +34,7 @@ function showText() {
     }
 }
 
+window.parent.focus();
 showText();
 
 const button = document.getElementById("next");
@@ -49,6 +50,7 @@ button?.addEventListener("click", () => {
         document.getElementById("box").style.display = "none"
     }
     showText();
+     window.parent.focus();
 });
 
 const pacte = document.getElementById("pacte")
