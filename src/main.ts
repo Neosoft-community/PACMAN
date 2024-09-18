@@ -8,6 +8,22 @@ import { ActionMessage, UIWebsite } from "@workadventure/iframe-api-typings";
 
 console.log('Script started successfully');
 
+/// <reference types="@workadventure/iframe-api-typings" />
+
+let allPopup: Array<any> = new Array();
+let passageStat = {
+    "salles":           [false,false,false,false,false,false,false,false,false],
+    "conf1":            [false,false,false,false,false,false,false,false,false],
+    "conf2":            [false,false,false,false,false,false,false,false,false],
+    "conf3":            [false,false,false,false,false,false,false,false,false],
+    "indices":          [false,false,false,false,false,false,false,false,false],
+    "indicesTotaux":    [false,false,false,false,false,false,false,false,false],
+    "quetes":           [false,false,false,false],
+    "quetesTot":        [false,false,false,false],
+    "quetesTard":       [false,false,false,false],
+    "quetesTotales":    [false,false,false,false],
+}
+
 let currentPopup : any = undefined;
 // let currentPrompt: UIWebsite;
 // let modalOpenTime: number;
@@ -662,6 +678,14 @@ WA.room.area.onLeave(AREA.FLOOR_LAYER.BET_ON_EXPERTISE_CITATION2).subscribe(asyn
     closeAllPrompts();
 });
 
+WA.room.area.onEnter(AREA.FLOOR_LAYER.BET_ON_EXPERTISE_CITATION6).subscribe(async () => {
+    boiteDeDialogue("src/betOnExpertiseLink6.html","30vh");
+})
+
+WA.room.area.onLeave(AREA.FLOOR_LAYER.BET_ON_EXPERTISE_CITATION6).subscribe(async () => {
+    closeAllPrompts();
+});
+
 WA.room.area.onEnter(AREA.FLOOR_LAYER.BET_ON_EXPERTISE_CITATION3).subscribe(async () => {
     boiteDeDialogue("src/betOnExpertiseLink3.html","30vh");
 })
@@ -728,9 +752,40 @@ WA.room.area.onEnter(AREA.FLOOR_LAYER.BET_ON_FUTUR_LINK_3).subscribe(async () =>
     })
 })
 
+//area stand Software engenering
+WA.room.area.onEnter('StandS').subscribe(() => {
+    // const today = new Date();
+    // const time = today.getHours() + ":" + today.getMinutes();
+    allPopup.push(WA.ui.openPopup("StandS", "Merci de vous rendre en salle 2 !", [{
+        label: "OK !",
+        className: "primary",
+        callback: () => {
+            closePopup();
+        }
+    }]));
+})
 
+function closePopup(){
+    allPopup.forEach((element =>{
+        element.close()
+    }))
+    allPopup.splice(0, allPopup.length)
+}
 
+//area stand Software engenering
+WA.room.area.onEnter('StandS').subscribe(() => {
+    // const today = new Date();
+    // const time = today.getHours() + ":" + today.getMinutes();
+    allPopup.push(WA.ui.openPopup("StandS", "Merci de vous rendre en salle 2 !", [{
+        label: "OK !",
+        className: "primary",
+        callback: () => {
+            closePopup();
+        }
+    }]));
+})
 
+WA.room.area.onLeave('StandS').subscribe(closePopup)
 
 WA.room.area.onLeave(AREA.FLOOR_LAYER.BET_ON_FUTUR_LINK_3).subscribe(async () => {
     await currentPopup.close()
