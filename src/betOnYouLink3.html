@@ -10,11 +10,30 @@
     
 
     <style>
-        
         #videoContainer {
             display: flex;
             justify-content: center;
-            margin: 2em 0;
+           /** margin: 2em 0;**/
+            align-items: center;
+            height: 100vh;
+        }
+
+        body, html{
+            overflow: hidden;
+        }
+
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+        }
+
+        #box {
+            text-align: center;
+            padding-top: 50px;
         }
 
         .talent {
@@ -24,12 +43,32 @@
             border-radius: 5px;
             font-weight: bold;
             cursor: pointer;
-            margin:24px;
+            font-size: 1em;
         }
 
-        .talent:hover {
-            background-color: white;
+        .talent1 {
+            background-color: skyblue;
+            padding: 1em 2em;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            margin:24px;
+            /**margin-left:475px;**/
+            
         }
+        
+        .talent:hover {
+            background-color: rgb(182, 227, 245);
+        }
+
+        @media (max-width: 768px) {
+            .talent {
+                padding: 0.8em 1.5em;
+                font-size: 0.9em; /* Réduire la taille du bouton sur les petits écrans */
+            }
+        }
+
     </style>
   <link rel="stylesheet" href="../assets/styleImgVideo-e584acd2.css">
 </head>
@@ -41,18 +80,17 @@
             </div> -->
             <div id="text"></div>
             <div hidden="true" id="buttonsContainer">
-                <button class="talent" id="pacte">Voir le Pacte Neosoft</button>
-               
+                <!--<button class="talent" id="pacte">Voir le Pacte Neosoft</button>-->
             </div>
-            <button class="talent" id="career">Consulter nos évènements</button>
+            <button class="talent" id="career" position="center">Consulter nos évènements</button>
         </div>
     </div>
 </body>
 <script>
     
 /**const text = [
-    "Consulter nos évènements "
-];**/
+    "Consulter nos livres blancs "
+];*/
 let index = 0;
 let textIndex = 0
 
@@ -78,11 +116,16 @@ function showText() {
     }
 }
 
-showText();
+/**showText();**/
+window.parent.focus();
 
-const button = document.getElementById("next");
+const careerButton = document.getElementById("career");
+careerButton.addEventListener("click", () => {
+window.open("https://www.neosoft.fr/nos-publications/evenements", "_blank");
+window.parent.focus();
+});
 
-button?.addEventListener("click", () => {
+/**button?.addEventListener("click", () => {
     let nextButton = document.getElementById("next")
     if (nextButton) {
         nextButton.hidden = true;
@@ -93,15 +136,18 @@ button?.addEventListener("click", () => {
     if (textIndex >= text.length) {
         document.getElementById("box").style.display = "none";
         window.parent.postMessage({ type: 'closeUIWebsite' }, "*");
+        window.parent.focus();
         return;
     }
     showText();
-});
+    window.parent.focus();
+});**/
 
-const career = document.getElementById("career")
+/**
+const career = document.getElementById("career");
 
 career?.addEventListener("click", () => {
-    window.open("https://www.neosoft.fr/nos-publications/evenements ", "_blank")
-})
+    window.open("https://www.neosoft.fr/nos-publications/livres-blancs-et-refcards/", "_blank");
+});**/
 </script>
 </html>

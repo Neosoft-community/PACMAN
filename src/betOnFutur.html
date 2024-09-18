@@ -88,7 +88,7 @@ function showText() {
         }
     }
 }
-
+window.parent.focus();
 showText();
 
 const button = document.getElementById("next");
@@ -102,8 +102,10 @@ button?.addEventListener("click", () => {
     textIndex++;
     if (textIndex == text.length) {
         document.getElementById("box").style.display = "none"
+        window.parent.focus();
     }
     showText();
+    window.parent.focus();
 });
 </script>
 </html>
