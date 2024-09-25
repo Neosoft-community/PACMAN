@@ -285,12 +285,6 @@ WA.room.area.onEnter(AREA.FLOOR_LAYER.BET_ON_BETTER).subscribe(async () => {
     boiteDeDialogue("src/betOnBetter.html", "90vh", "76vw");
 })
 
-
-
-
-
-
-
 WA.room.area.onLeave(AREA.FLOOR_LAYER.BET_ON_BETTER).subscribe(async () => {
     console.log('leaving betonbetter')
     closeAllPrompts();
@@ -738,18 +732,105 @@ WA.room.area.onEnter(AREA.FLOOR_LAYER.BET_ON_FUTUR_LINK_3).subscribe(async () =>
     })
 })
 
+
 //area stand Software engenering
-WA.room.area.onEnter('StandS').subscribe(() => {
+WA.room.area.onEnter('Edevops').subscribe(() => {
     // const today = new Date();
     // const time = today.getHours() + ":" + today.getMinutes();
-    allPopup.push(WA.ui.openPopup("StandS", "Merci de vous rendre en salle 2 !", [{
+    allPopup.push(WA.ui.openPopup("Edevops", "Expertise : DevOps", [{
         label: "OK !",
         className: "primary",
+        
         callback: () => {
             closePopup();
         }
     }]));
 })
+WA.room.area.onLeave('Edevops').subscribe(closePopup)
+
+//area stand Software engenering
+WA.room.area.onEnter('Cloud').subscribe(() => {
+    // const today = new Date();
+    // const time = today.getHours() + ":" + today.getMinutes();
+    allPopup.push(WA.ui.openPopup("Cloud", "Expertise : Cloud", [{
+        label: "OK !",
+        className: "primary",
+        
+        callback: () => {
+            closePopup();
+        }
+    }]));
+})
+WA.room.area.onLeave('Cloud').subscribe(closePopup)
+
+
+//area stand Software engenering
+WA.room.area.onEnter('Software').subscribe(() => {
+    // const today = new Date();
+    // const time = today.getHours() + ":" + today.getMinutes();
+    allPopup.push(WA.ui.openPopup("Software", "Expertise : Software", [{
+        label: "OK !",
+        className: "primary",
+        
+        callback: () => {
+            closePopup();
+        }
+    }]));
+})
+WA.room.area.onLeave('Software').subscribe(closePopup)
+
+
+
+//area stand Software engenering
+WA.room.area.onEnter('StandS').subscribe(() => {
+    // const today = new Date();
+    // const time = today.getHours() + ":" + today.getMinutes();
+    allPopup.push(WA.ui.openPopup("StandS", "Expertise : Conseil & Agilité", [{
+        label: "OK !",
+        className: "primary",
+        
+        callback: () => {
+            closePopup();
+        }
+    }]));
+})
+WA.room.area.onLeave('StandS').subscribe(closePopup)
+
+
+//area stand Software engenering
+WA.room.area.onEnter('Cyber').subscribe(() => {
+    // const today = new Date();
+    // const time = today.getHours() + ":" + today.getMinutes();
+    allPopup.push(WA.ui.openPopup("Cyber", "Expertise : Cybersecurité", [{
+        label: "OK !",
+        className: "primary",
+        
+        callback: () => {
+            closePopup();
+        }
+    }]));
+})
+WA.room.area.onLeave('Cyber').subscribe(closePopup)
+
+
+
+
+//area stand Software engenering
+WA.room.area.onEnter('Data').subscribe(() => {
+    // const today = new Date();
+    // const time = today.getHours() + ":" + today.getMinutes();
+    allPopup.push(WA.ui.openPopup("Data", "Expertise : Data", [{
+        label: "OK !",
+        className: "primary",
+        
+        callback: () => {
+            closePopup();
+        }
+    }]));
+})
+WA.room.area.onLeave('Data').subscribe(closePopup)
+
+
 
 function closePopup(){
     allPopup.forEach((element =>{
@@ -758,20 +839,8 @@ function closePopup(){
     allPopup.splice(0, allPopup.length)
 }
 
-//area stand Software engenering
-WA.room.area.onEnter('StandS').subscribe(() => {
-    // const today = new Date();
-    // const time = today.getHours() + ":" + today.getMinutes();
-    allPopup.push(WA.ui.openPopup("StandS", "Merci de vous rendre en salle 2 !", [{
-        label: "OK !",
-        className: "primary",
-        callback: () => {
-            closePopup();
-        }
-    }]));
-})
-
 WA.room.area.onLeave('StandS').subscribe(closePopup)
+
 
 WA.room.area.onLeave(AREA.FLOOR_LAYER.BET_ON_FUTUR_LINK_3).subscribe(async () => {
     await currentPopup.close()
