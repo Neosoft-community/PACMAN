@@ -35,6 +35,7 @@ export default defineConfig({
                 betOnExpertiseLink3   : "./src/betOnExpertiseLink3.html",
                 betOnExpertiseLink4   : "./src/betOnExpertiseLink4.html",
                 betOnExpertiseLink5   : "./src/betOnExpertiseLink5.html",
+                betOnExpertiseLink6   : "./src/betOnExpertiseLink6.html",
                 betOnFutur            : "./src/betOnFutur.html",
                 betOnFuturLink1       : "./src/betOnFuturLink1.html",
                 betOnTalent           : "./src/betOnTalent.html",
